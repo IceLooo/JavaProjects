@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:carView.properties"/>
+
+<!--    <bean id="carBean"-->
+<!--          class="kz.zhanayev.springcourse.Sedan">-->
+<!--    </bean>-->
+
+<!--   <bean id="carView"-->
+<!--         class="kz.zhanayev.springcourse.CarView">-->
+<!--       <property name="car" ref="carBean"/>-->
+
+<!--       <property name="color" value="${carView.name}"/>-->
+<!--       <property name="speed" value="${carView.speed}"/>-->
+
+<!--   </bean>-->
+
+    <bean id="carBean1"
+          class="kz.zhanayev.springcourse.Sedan">
+    </bean>
+
+    <bean id="carBean2"
+          class="kz.zhanayev.springcourse.Coupe">
+    </bean>
+
+    <bean id="carBean3"
+          class="kz.zhanayev.springcourse.Crossover">
+    </bean>
+
+    <bean id="carView"
+          class="kz.zhanayev.springcourse.CarView">
+        <property name="cars">
+            <list>
+                <ref bean="carBean1"/>
+                <ref bean="carBean2"/>
+                <ref bean="carBean3"/>
+            </list>
+        </property>
+
+        <property name="color" value="${carView.name}"/>
+        <property name="speed" value="${carView.speed}"/>
+    </bean>
+
+</beans>
